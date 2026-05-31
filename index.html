@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nathalia GP 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Orbitron',sans-serif;
+
+    background:#050505;
+
+    color:white;
+
+    overflow-x:hidden;
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 50px,
+        rgba(255,255,255,.02) 50px,
+        rgba(255,255,255,.02) 100px
+    );
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+/* HERO */
+
+#hero{
+
+    height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.85)
+    ),
+    url("images/hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-content{
+
+    text-align:center;
+}
+
+.round{
+
+    color:#E10600;
+
+    letter-spacing:5px;
+
+    font-size:1rem;
+}
+
+.hero-content h1{
+
+    font-size:8rem;
+
+    margin:20px 0;
+
+    letter-spacing:10px;
+}
+
+.hero-content p{
+
+    color:#cfcfcf;
+
+    margin-bottom:40px;
+}
+
+.btn{
+
+    background:#E10600;
+
+    color:white;
+
+    border:none;
+
+    padding:18px 40px;
+
+    cursor:pointer;
+
+    font-family:'Orbitron';
+
+    letter-spacing:2px;
+
+    transition:.3s;
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+}
+
+/* COUNTDOWN */
+
+#countdown{
+
+    padding:120px 20px;
+
+    text-align:center;
+}
+
+#countdown h2{
+
+    margin-bottom:50px;
+}
+
+.timer{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+}
+
+.time-box{
+
+    min-width:140px;
+}
+
+.time-box span{
+
+    display:block;
+
+    font-size:4rem;
+
+    color:#E10600;
+}
+
+.time-box small{
+
+    color:#aaa;
+}
+
+/* VIP PASS */
+
+#vip-pass{
+
+    padding:120px 20px;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.pass{
+
+    width:900px;
+
+    max-width:100%;
+
+    background:#111;
+
+    border-top:5px solid #E10600;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 0 40px rgba(225,6,0,.2);
+}
+
+.pass-header{
+
+    background:#0c0c0c;
+
+    padding:25px;
+
+    color:#E10600;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+}
+
+.pass-body{
+
+    padding:50px;
+}
+
+.pass-body h2{
+
+    font-size:4rem;
+
+    margin-bottom:10px;
+}
+
+.driver-role{
+
+    color:#999;
+
+    letter-spacing:3px;
+}
+
+.event-details{
+
+    margin-top:40px;
+
+    display:grid;
+
+    gap:20px;
+}
+
+/* TEAMS */
+
+#teams{
+
+    padding:120px 8%;
+}
+
+.section-title{
+
+    font-size:3rem;
+
+    margin-bottom:60px;
+}
+
+.teams-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+}
+
+.team-card{
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    min-height:400px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:50px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.team-card:hover{
+
+    transform:translateY(-5px);
+}
+
+.team-info h3{
+
+    font-size:3rem;
+}
+
+.team-info p{
+
+    margin-top:10px;
+
+    opacity:.8;
+}
+
+.team-card img{
+
+    width:50%;
+
+    max-width:700px;
+
+    object-fit:contain;
+}
+
+.ferrari{
+    background:linear-gradient(90deg,#8f0015,#E10600);
+}
+
+.mercedes{
+    background:linear-gradient(90deg,#00665f,#00D2BE);
+}
+
+.redbull{
+    background:linear-gradient(90deg,#17376a,#1E5BC6);
+}
+
+.mclaren{
+    background:linear-gradient(90deg,#9f5000,#FF8700);
+}
+
+/* RSVP */
+
+#rsvp{
+
+    padding:120px 20px;
+
+    text-align:center;
+}
+
+#rsvp h2{
+
+    margin-bottom:30px;
+}
+
+.rsvp-btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#25D366;
+
+    padding:20px 40px;
+
+    border-radius:8px;
+}
+
+/* LIGHTBOX */
+
+#lightbox{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.95);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+#lightbox img{
+
+    max-width:90%;
+    max-height:90%;
+}
+
+.close{
+
+    position:absolute;
+
+    top:20px;
+    right:30px;
+
+    font-size:60px;
+
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+
+.hero-content h1{
+    font-size:4rem;
+}
+
+.team-card{
+
+    flex-direction:column;
+
+    text-align:center;
+}
+
+.team-card img{
+
+    width:100%;
+
+    margin-top:30px;
+}
+
+.team-info h3{
+
+    font-size:2rem;
+}
+
+.pass-body h2{
+
+    font-size:2.5rem;
+}
+
+}
+
+.event-logo{
+
+    width:220px;
+
+    max-width:80vw;
+
+    margin-bottom:25px;
+
+    animation:logoReveal 1.2s ease;
+}
+
+@keyframes logoReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#raceStartOverlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:10000;
+}
+
+.lights-container{
+
+    display:flex;
+
+    gap:25px;
+}
+
+.race-light{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:#1a1a1a;
+
+    transition:.3s;
+}
+
+.race-light.active{
+
+    background:#E10600;
+
+    box-shadow:
+    0 0 20px #E10600,
+    0 0 50px #E10600;
+}
+
+#raceMessage{
+
+    margin-top:40px;
+
+    letter-spacing:5px;
+
+    color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div id="raceStartOverlay">
+
+    <div class="lights-container">
+
+        <div class="race-light"></div>
+        <div class="race-light"></div>
+        <div class="race-light"></div>
+        <div class="race-light"></div>
+        <div class="race-light"></div>
+
+    </div>
+
+    <h2 id="raceMessage">
+        PREPARE FOR LIGHTS OUT
+    </h2>
+
+</div>
+
+<section id="hero">
+
+    <div class="hero-content">
+
+        <img
+        src="images/logo.png"
+        class="event-logo"
+        alt="Nathalia GP Logo">
+
+        <div class="round">
+            ROUND 01
+        </div>
+
+        <h1>NATHALIA GP</h1>
+
+        <p>
+            Formula One Birthday Experience
+        </p>
+
+        <button
+            class="btn"
+            onclick="startRaceSequence()">
+
+            ENTER PADDOCK
+
+        </button>
+
+    </div>
+
+</section>
+
+<section id="countdown">
+
+    <h2>LIGHTS OUT IN</h2>
+
+    <div class="timer">
+
+        <div class="time-box">
+            <span id="days">0</span>
+            <small>DAYS</small>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">0</span>
+            <small>HOURS</small>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">0</span>
+            <small>MINUTES</small>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">0</span>
+            <small>SECONDS</small>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="vip-pass">
+
+    <div class="pass">
+
+        <div class="pass-header">
+            PADDOCK PASS
+        </div>
+
+        <div class="pass-body">
+
+            <h2>NATHALIA </h2>
+
+            <div class="driver-role">
+                DRIVER
+            </div>
+
+            <div class="event-details">
+
+                <p>📅 19 de Junio de 2026</p>
+
+                <p>🕓 2:00 PM</p>
+
+                <p>📍 San Salvador, El Salvador</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="teams">
+
+    <h2 class="section-title">
+        TEAM LINEUP
+    </h2>
+
+    <div class="teams-container" id="teamsContainer"></div>
+
+</section>
+
+<section id="rsvp">
+
+    <h2>
+        READY FOR LIGHTS OUT?
+    </h2>
+
+    <a
+        class="rsvp-btn"
+        href="https://wa.me/50312345678?text=Confirmo%20mi%20asistencia%20al%20Nathalia%20GP"
+        target="_blank">
+
+        CONFIRM ATTENDANCE
+
+    </a>
+
+</section>
+
+<div id="lightbox">
+
+    <span class="close">&times;</span>
+
+    <img id="lightboxImage">
+
+</div>
+
+<script>
+
+const teams = [
+
+
+{
+    name:"Red Bull Racing",
+    drivers:"Max Verstappen • Hadjar",
+    image:"images/Leandro & Nathalia.png",
+    class:"redbull"
+},
+{
+    name:"Ferrari",
+    drivers:"Charles Leclerc • Lewis Hamilton",
+    image:"images/Chucho, Fer & Nico.png",
+    class:"ferrari"
+},
+
+{
+    name:"Mercedes",
+    drivers:"George Russell • Kimi Antonelli",
+    image:"images/Mario & Jaqueline.png",
+    class:"mercedes"
+},
+
+{
+    name:"McLaren",
+    drivers:"Lando Norris • Oscar Piastri",
+    image:"images/Renato & Gisela.png",
+    class:"mclaren"
+},
+
+{
+    name:"McLaren",
+    drivers:"Lando Norris • Oscar Piastri",
+    image:"images/Gaby & Negro.jpg",
+    class:"mclaren"
+}
+
+];
+
+function loadTeams(){
+
+    const container =
+    document.getElementById("teamsContainer");
+
+    teams.forEach(team=>{
+
+        container.innerHTML += `
+
+        <div class="team-card ${team.class}">
+
+            <div class="team-info">
+
+                <h3>${team.name}</h3>
+
+                <p>${team.drivers}</p>
+
+            </div>
+
+            <img
+            src="${team.image}"
+            onclick="event.stopPropagation();openImage('${team.image}')">
+
+        </div>
+
+        `;
+    });
+}
+
+function openImage(src){
+
+    document
+    .getElementById("lightbox")
+    .style.display="flex";
+
+    document
+    .getElementById("lightboxImage")
+    .src = src;
+}
+
+document
+.getElementById("lightbox")
+.addEventListener("click",()=>{
+
+    document
+    .getElementById("lightbox")
+    .style.display="none";
+
+});
+
+function updateCountdown(){
+
+    const target =
+    new Date("2026-06-19T16:00:00");
+
+    const now =
+    new Date();
+
+    const diff =
+    target - now;
+
+    const days =
+    Math.floor(diff / 86400000);
+
+    const hours =
+    Math.floor((diff % 86400000) / 3600000);
+
+    const minutes =
+    Math.floor((diff % 3600000) / 60000);
+
+    const seconds =
+    Math.floor((diff % 60000) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+loadTeams();
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+function startRaceSequence(){
+
+    const overlay =
+        document.getElementById(
+            "raceStartOverlay"
+        );
+
+    const lights =
+        document.querySelectorAll(
+            ".race-light"
+        );
+
+    overlay.style.display = "flex";
+
+    lights.forEach(light=>{
+
+        light.classList.remove("active");
+
+    });
+
+    lights.forEach((light,index)=>{
+
+        setTimeout(()=>{
+
+            light.classList.add("active");
+
+        },(index+1)*1000);
+
+    });
+
+    setTimeout(()=>{
+
+        lights.forEach(light=>{
+
+            light.classList.remove("active");
+
+        });
+
+        launchRace();
+
+    },6500);
+}
+function launchRace(){
+
+    const overlay =
+        document.getElementById(
+            "raceStartOverlay"
+        );
+
+    overlay.style.transition =
+        "transform 1s ease";
+
+    overlay.style.transform =
+        "translateX(100%)";
+
+    document
+        .getElementById("raceMusic")
+        .play();
+
+    setTimeout(()=>{
+
+        overlay.remove();
+
+        document
+            .getElementById(
+                "countdown"
+            )
+            .scrollIntoView({
+
+                behavior:"smooth"
+
+            });
+
+    },1000);
+}
+
+</script>
+<audio id="raceMusic">
+
+    <source
+        src="music/Max Verstappen Song.mp3"
+        type="audio/mpeg">
+
+</audio>
+</body>
+</html>
